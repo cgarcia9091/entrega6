@@ -1,6 +1,3 @@
-# Clase que representa a un autor
-
-# Clase que representa a un autor
 class Autor:
 
     def __init__(self, nombre, bio, especialidad="", redes_sociales=None):
@@ -9,7 +6,7 @@ class Autor:
         self.especialidad = especialidad
         self.redes_sociales = redes_sociales if redes_sociales is not None else []
 
-    # Convertir el objeto Autor en diccionario
+    # Convertir a diccionario
     def to_dict(self):
         return {
             "nombre": self.nombre,
@@ -18,7 +15,7 @@ class Autor:
             "redes_sociales": self.redes_sociales
         }
 
-    # Crear un objeto Autor desde un diccionario
+    # Crear un objeto Autor 
     @classmethod
     def from_dict(cls, datos):
 
@@ -34,9 +31,6 @@ class Autor:
             datos.get("especialidad", ""),
             datos.get("redes_sociales", [])
         )
-
-
-# Clase que representa una publicación
 class Post:
 
     def __init__(self, id, titulo, contenido, autor, tags, estado):
@@ -46,8 +40,7 @@ class Post:
         self.autor = autor
         self.tags = tags
         self.estado = estado
-
-    # Convertir el objeto Post en diccionario
+  
     def to_dict(self):
         return {
             "id": self.id,
@@ -57,8 +50,7 @@ class Post:
             "tags": self.tags,
             "estado": self.estado
         }
-
-    # Crear un objeto Post desde un diccionario
+  
     @classmethod
     def from_dict(cls, datos):
 
@@ -83,21 +75,18 @@ class Post:
         )
 
 
-# Clase que administra el blog
+# Clase blog
 class Blog:
 
     def __init__(self, posts=None):
         self.posts = posts if posts is not None else []
 
-    # Obtener todos los posts
     def obtener_posts(self):
         return self.posts
 
-    # Listar posts
     def listar_posts(self):
         return self.posts
 
-    # Buscar posts por título
     def buscar_por_titulo(self, termino):
         encontrados = []
 
@@ -107,8 +96,7 @@ class Blog:
                     encontrados.append(post)
 
         return encontrados
-
-    # Filtrar posts por tag
+   
     def filtrar_por_tag(self, tag):
         encontrados = []
 
@@ -121,16 +109,14 @@ class Blog:
                             break
 
         return encontrados
-
-    # Agregar un nuevo post
+   
     def crear_post(self, post):
         if type(post) is Post:
             self.posts.append(post)
             return True
 
         return False
-
-    # Validar todos los posts
+   
     def validar_posts(self):
         from blog.validaciones import validar_post
 

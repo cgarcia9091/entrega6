@@ -5,11 +5,11 @@ from pathlib import Path
 from blog.modelos import Autor, Post
 
 
-# Ruta del archivo posts.json en la carpeta principal
+
 RUTA_JSON = Path(__file__).resolve().parent.parent / "posts.json"
 
 
-# Crear publicaciones iniciales
+# Publicaciones iniciales
 def crear_posts_iniciales():
 
     perfil_autor = Autor(
@@ -62,7 +62,7 @@ def crear_posts_iniciales():
     ]
 
 
-# Cargar publicaciones desde JSON
+# Cargar post desde JSON
 def cargar_posts():
 
     if not RUTA_JSON.exists():
@@ -97,7 +97,7 @@ def cargar_posts():
         return crear_posts_iniciales()
 
 
-# Guardar publicaciones en JSON
+# Guardar en JSON
 def guardar_posts(posts):
 
     try:

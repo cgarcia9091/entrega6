@@ -1,4 +1,3 @@
-# Función para mostrar publicaciones
 def mostrar_posts(lista):
 
     if not lista:

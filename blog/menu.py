@@ -1,4 +1,4 @@
-# Función para mostrar el menú y capturar la opción
+
 def mostrar_menu():
 
     print("\n--- MENU DEL BLOG ---")

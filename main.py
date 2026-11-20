@@ -19,11 +19,11 @@ if __name__ == "__main__":
 
         opcion = mostrar_menu()
 
-        # Opción 1: listar posts
+        # Opción 1:
         if opcion == 1:
             mostrar_posts(mi_blog.listar_posts())
 
-        # Opción 2: buscar por título
+        # Opción 2: 
         elif opcion == 2:
             termino = input("Buscar por titulo: ").strip()
 
@@ -33,7 +33,7 @@ if __name__ == "__main__":
             else:
                 print("La busqueda no puede estar vacia.")
 
-        # Opción 3: filtrar por tag
+        # Opción 3:
         elif opcion == 3:
             tag = input("Ingresa el tag que deseas buscar: ").strip()
 
@@ -43,7 +43,7 @@ if __name__ == "__main__":
             else:
                 print("El tag no puede estar vacio.")
 
-        # Opción 4: crear un nuevo post
+        # Opción 4: 
         elif opcion == 4:
 
             print("\n--- NUEVO POST ---")
@@ -67,11 +67,9 @@ if __name__ == "__main__":
                 if not tags:
                     print("Debes ingresar al menos un tag.")
 
-                else:
-                    # Crear objeto Autor
+                else:                    
                     autor = Autor(nombre_autor, bio_autor)
-
-                    # Generar un ID nuevo
+                   
                     nuevo_id = max(
                         (
                             post.id
@@ -80,8 +78,7 @@ if __name__ == "__main__":
                         ),
                         default=0
                     ) + 1
-
-                    # Crear objeto Post
+                  
                     nuevo_post = Post(
                         nuevo_id,
                         titulo,
@@ -90,8 +87,7 @@ if __name__ == "__main__":
                         tags,
                         "borrador"
                     )
-
-                    # Validar el nuevo post
+                   
                     resultado = validar_post(nuevo_post)
 
                     if resultado is True:
@@ -99,8 +95,7 @@ if __name__ == "__main__":
                         print("El post se creó correctamente.")
                     else:
                         print(f"No se pudo crear el post: {resultado}")
-
-        # Opción 5: validar publicaciones
+      
         elif opcion == 5:
 
             print("\n--- VALIDACION DE POSTS ---")
@@ -117,7 +112,7 @@ if __name__ == "__main__":
         elif opcion == 6:
             guardar_posts(mi_blog.obtener_posts())
 
-        # Opción 7: salir
+        # Opción 7: 
         elif opcion == 7:
             print("Gracias por usar el sistema del blog. ¡Hasta luego!")
             break
